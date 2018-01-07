@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Blackout Game</title>
+    
+</head>
+<body>
+    <div class="container">
+        <h1>Blackout Rules</h1>
+        <p>Select a number below. The program will list all of the numbers from 1 to the number of your choice, unless they are divisible by 3 and/or 5. If the number is divisible by 3 it will be replaced by "Black". If the number 5 it will be replaced by "Out". If the number is divisible by 3 and 5 it will be replaced by "Blackout"</p>
+    </div>
+    <hr>
+    <form>
+        <input type="number" min="1" max="100" id="highNumber">
+        <input type="button" value="Begin" id="begin">
+    </form>
+    <p id="result"></p>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script>
+    $("#begin").click(function(){    
+        var maxNumber = parseInt($("#highNumber").val())
+        blackOut(maxNumber)
+    })
+     function blackOut(maxNumber) {
+         for (i = 0; i <= maxNumber; i++) {
+             if (i % 15 === 0) {
+                 $("#result").append("Blackout<br>");
+             } else if (i % 3 === 0) {
+                $("#result").append("Black<br>");
+             } else if (i % 5 === 0) {
+                 $("#result").append("Out<br>");
+             }
+             else {
+             $("#result").append(i + "<br>");
+             }
+         }
+     }   
+    </script>
+</body>
+</html>
